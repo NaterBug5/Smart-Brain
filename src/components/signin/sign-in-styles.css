@@ -1,0 +1,139 @@
+/* Background wrapper with smooth gradient + subtle animation */
+.sign-in-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00bfa6, #0078d7, #5e35b1);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* Animated gradient movement */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Main card container */
+.sign-in-form-wrapper {
+  width: 400px;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add glowing edge accent */
+.sign-in-form-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00bfa6, #2196f3, #8e24aa);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Hover lift effect */
+.sign-in-form-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Headings */
+.sign-in-form-wrapper h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Inputs */
+.sign-in-form-wrapper input {
+  width: 100%;
+  padding: 12px;
+  margin: 0.75rem 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sign-in-form-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sign-in-form-wrapper input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 191, 166, 0.6);
+}
+
+/* Button styling */
+.sign-in-form-wrapper button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #00bfa6, #2196f3);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sign-in-form-wrapper button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 191, 166, 0.8);
+}
+
+/* Register link */
+.sign-in-form-wrapper p {
+  margin-top: 1rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sign-in-form-wrapper p:hover {
+  color: #00e5ff;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .sign-in-form-wrapper {
+    width: 85%;
+    padding: 2rem;
+  }
+  .sign-in-form-wrapper h1 {
+    font-size: 1.8rem;
+  }
+}

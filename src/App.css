@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-image: linear-gradient(135deg, #1abc9c, #3498db);
+  text-align: center; /* optional, if you want everything centered */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}

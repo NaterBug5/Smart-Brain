@@ -1,0 +1,143 @@
+/* ========== FORM CONTAINER ========== */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  padding: 2.5rem;
+  margin-top: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* Animated border glow */
+.form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #00bfa6, #2196f3, #8e24aa);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: borderGlow 6s linear infinite;
+  opacity: 0.9;
+}
+
+/* Border animation */
+@keyframes borderGlow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Hover lift effect */
+.form:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Input fields */
+input {
+  width: 70%;
+  padding: 12px;
+  margin: 0.75rem 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 191, 166, 0.7);
+}
+
+/* Submit button */
+button {
+  width: 50%;
+  padding: 12px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00bfa6, #2196f3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #00e5ff, #8e24aa);
+  box-shadow: 0 0 15px rgba(0, 191, 166, 0.8);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* ========== IMAGE WRAPPER ========== */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Optional glow around the image */
+.image-wrapper img {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.6);
+}
+
+/* Bounding box */
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #fff inset;
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .form {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  button {
+    width: 70%;
+  }
+}

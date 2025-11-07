@@ -1,0 +1,18 @@
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.tilt-wrapper {
+  display: inline-block; /* Shrinks container to just wrap image */
+}
+
+.tilt-image {
+  display: block;
+  height: 150px;
+  width: 150px;
+  mix-blend-mode: multiply;
+  background-color: transparent;
+}
