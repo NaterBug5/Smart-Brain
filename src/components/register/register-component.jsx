@@ -22,7 +22,7 @@ const Register = ({ onRouteChange }) => {
     setRegisterPassword(event.target.value);
   };
 
-  const onNameChage = (event) => {
+  const onNameChange = (event) => {
     setRegisterName(event.target.value);
   };
 
@@ -38,7 +38,7 @@ const Register = ({ onRouteChange }) => {
 
   const onSubmitSignIn = () => {
     fetch("https://smart-brain-bdmg.onrender.com/register", {
-      method: "post",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: registerEmail,
@@ -46,15 +46,22 @@ const Register = ({ onRouteChange }) => {
         name: registerName,
       }),
     })
-      .then((response) => response.json())
+      .then(async (response) => {
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || "Server error");
+        }
+        return response.json();
+      })
       .then((userData) => {
-        if (userData) {
+        if (userData.id) {
+          loadUser(userData);
           onRouteChange("signin");
-          loadUser();
         } else {
           window.alert("Username and/or password is invalid");
         }
-      });
+      })
+      .catch((err) => window.alert(err.message));
   };
 
   return (
@@ -63,7 +70,7 @@ const Register = ({ onRouteChange }) => {
         <div className="form-wrapper">
           <h1>Register Your Account</h1> <hr></hr>
           <h3>Name:</h3>
-          <input type="text" onChange={onNameChage} />
+          <input type="text" onChange={onNameChange} />
           <h3>Email:</h3>
           <input type="email" onChange={onEmailChange} />
           <h3>Password:</h3>
