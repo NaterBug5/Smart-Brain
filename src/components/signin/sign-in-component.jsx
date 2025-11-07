@@ -15,7 +15,7 @@ const SignIn = ({ onRouteChange, loadUser }) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch("https://smart-brain-bdmg.onrender.com/signin", {
+    fetch("https://smart-brain-backend-server.onrender.com/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

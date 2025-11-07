@@ -37,7 +37,7 @@ const Register = ({ onRouteChange }) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch("https://smart-brain-bdmg.onrender.com/register", {
+    fetch("https://smart-brain-backend-server.onrender.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
